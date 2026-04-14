@@ -1,19 +1,39 @@
 # Trippi
 
-Trippi is a travel-specialist fork of the excellent upstream Travel Hacking Toolkit by Michael Borohovski. It keeps the toolkit's broad points-and-miles surface area, then adds a Hermes-native specialist layer for Christian's workflow: a dedicated Trippi persona, Hyatt-first logic, and starter config for running it as a Hermes profile.
+Trippi is a travel-specialist fork of the excellent upstream Travel Hacking Toolkit by Michael Borohovski.
 
-In plain English: this repo is for asking an AI the practical travel-hacking question that actually matters — what is the best move here, cash or points, and where should those points come from?
+It keeps the upstream toolkit's broad points-and-miles surface area, then adds a Hermes-native specialist layer: a dedicated Trippi persona, a Hyatt-first hotel strategy, and starter config for running the whole thing as a travel-focused Hermes profile.
 
-## What Trippi adds
+In plain English: this repo is for asking an AI the only travel-hacking question that really matters — what is the best move here, cash or points, and where should those points come from?
+
+## Best for
+
+- points-and-miles trip planning
+- cash vs points decisions with actual valuation logic
+- Chase and Amex transfer-partner analysis
+- Hyatt-heavy hotel workflows
+- running a dedicated travel specialist inside Hermes
+
+## What Trippi adds on top of upstream
 
 - `SOUL.md` adds the Trippi specialist identity and operating posture.
-- `hermes/trippi.config.example.yaml` is a Hermes profile starter config with travel env passthrough plus Hyatt MCP wiring.
-- `skills/hyatt-strategy/SKILL.md` adds a Hyatt-first hotel workflow and Chase-to-Hyatt transfer lens.
+- `hermes/trippi.config.example.yaml` gives you a Hermes profile starter with travel env passthrough and MCP wiring.
+- `skills/hyatt-strategy/SKILL.md` adds a Hyatt-first hotel workflow plus a Chase-to-Hyatt transfer lens.
 - `.mcp.json` and `opencode.json` include `@striderlabs/mcp-hyatt`.
+
+## Hyatt support
+
+Trippi is opinionated here on purpose.
+
+If Hyatt is plausibly relevant, the workflow should check Hyatt early instead of treating it like just another hotel chain buried in generic metasearch. This repo includes:
+
+- Hyatt MCP wiring via `@striderlabs/mcp-hyatt`
+- a dedicated `skills/hyatt-strategy/SKILL.md`
+- transfer-partner logic that makes Chase UR → Hyatt an explicit consideration
 
 ## Attribution
 
-This repo is derived from `borski/travel-hacking-toolkit`, which is MIT licensed. Most of the base toolkit content remains upstream work; Trippi layers specialist persona/configuration and Hyatt-focused behavior on top.
+This repo is derived from `borski/travel-hacking-toolkit`, which is MIT licensed. Most of the base toolkit content remains upstream work; Trippi adds the specialist persona/configuration layer and Hyatt-focused behavior.
 
 ## Quick Start
 
@@ -23,7 +43,7 @@ cd trippi
 ./scripts/setup.sh
 ```
 
-If you want the Hermes-specialist version rather than just the raw toolkit, also review:
+If you want the Hermes-specialist version rather than just the raw toolkit, start with:
 
 - `SOUL.md`
 - `hermes/trippi.config.example.yaml`
