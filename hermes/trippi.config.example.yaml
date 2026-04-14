@@ -1,0 +1,72 @@
+model:
+  default: gpt-5.4
+  provider: openai-codex
+
+toolsets:
+  - hermes-cli
+
+agent:
+  max_turns: 90
+  gateway_timeout: 1800
+
+terminal:
+  backend: local
+  cwd: /ABSOLUTE/PATH/TO/trippi
+  timeout: 180
+  env_passthrough:
+    - SEATS_AERO_API_KEY
+    - DUFFEL_API_KEY_LIVE
+    - IGNAV_API_KEY
+    - AWARDWALLET_API_KEY
+    - SERPAPI_API_KEY
+    - RAPIDAPI_KEY
+    - LITEAPI_API_KEY
+    - TRIPADVISOR_API_KEY
+    - ENTUR_CLIENT_NAME
+    - RESROBOT_API_KEY
+    - REJSEPLANEN_API_KEY
+    - SW_USERNAME
+    - SW_PASSWORD
+    - AA_USERNAME
+    - AA_PASSWORD
+    - AA_2FA_COMMAND
+    - CHASE_USERNAME
+    - CHASE_PASSWORD
+    - CHASE_2FA_COMMAND
+    - AMEX_USERNAME
+    - AMEX_PASSWORD
+    - AMEX_2FA_COMMAND
+
+mcp_servers:
+  skiplagged:
+    url: https://mcp.skiplagged.com/mcp
+  kiwi:
+    url: https://mcp.kiwi.com
+  trivago:
+    url: https://mcp.trivago.com/mcp
+  ferryhopper:
+    url: https://mcp.ferryhopper.com/mcp
+  airbnb:
+    command: npx
+    args:
+      - -y
+      - '@openbnb/mcp-server-airbnb@latest'
+      - --ignore-robots-txt
+  hyatt:
+    command: npx
+    args:
+      - -y
+      - '@striderlabs/mcp-hyatt'
+  liteapi:
+    url: https://mcp.liteapi.travel/api/mcp
+    headers:
+      Authorization: Bearer {env:LITEAPI_API_KEY}
+
+timezone: America/Los_Angeles
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+approvals:
+  mode: manual
+security:
+  redact_secrets: true
