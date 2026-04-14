@@ -1,39 +1,33 @@
 # Trippi
 
-Trippi is Christian's travel-specialist overlay on top of the excellent upstream Travel Hacking Toolkit by Michael Borohovski. This repo keeps the full toolkit as the base layer, then adds Trippi-specific persona/configuration pieces including a Hyatt-first skill and Hyatt MCP wiring.
+Trippi is a travel-specialist fork of the excellent upstream Travel Hacking Toolkit by Michael Borohovski. It keeps the toolkit's broad points-and-miles surface area, then adds a Hermes-native specialist layer for Christian's workflow: a dedicated Trippi persona, Hyatt-first logic, and starter config for running it as a Hermes profile.
 
-AI-powered travel hacking with points, miles, and award flights. Drop-in skills and MCP servers for [OpenCode](https://opencode.ai) and [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+In plain English: this repo is for asking an AI the practical travel-hacking question that actually matters — what is the best move here, cash or points, and where should those points come from?
 
-## What's different in this fork
+## What Trippi adds
 
 - `SOUL.md` adds the Trippi specialist identity and operating posture.
-- `hermes/trippi.config.example.yaml` is a Hermes profile starter config with travel env passthrough and Hyatt MCP included.
-- `skills/hyatt-strategy/SKILL.md` adds Christian's Hyatt-first hotel workflow.
-- `.mcp.json` and `opencode.json` include the `@striderlabs/mcp-hyatt` server.
+- `hermes/trippi.config.example.yaml` is a Hermes profile starter config with travel env passthrough plus Hyatt MCP wiring.
+- `skills/hyatt-strategy/SKILL.md` adds a Hyatt-first hotel workflow and Chase-to-Hyatt transfer lens.
+- `.mcp.json` and `opencode.json` include `@striderlabs/mcp-hyatt`.
 
 ## Attribution
 
-Most of the toolkit content here is derived from `borski/travel-hacking-toolkit`, which is MIT licensed. This repo preserves that base and layers Trippi-specific customizations on top.
-
-Ask your AI to find you a 60,000-mile business class flight to Tokyo. It'll search award availability across 25+ programs, compare against cash prices, check your loyalty balances, and tell you the best play.
-
-<p align="center">
-  <a href="https://www.star-history.com/?repos=borski%2Ftravel-hacking-toolkit&type=date&legend=top-left">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&theme=dark&legend=top-left" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&legend=top-left" />
-      <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&legend=top-left" width="500" />
-    </picture>
-  </a>
-</p>
+This repo is derived from `borski/travel-hacking-toolkit`, which is MIT licensed. Most of the base toolkit content remains upstream work; Trippi layers specialist persona/configuration and Hyatt-focused behavior on top.
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/borski/travel-hacking-toolkit.git
-cd travel-hacking-toolkit
+git clone https://github.com/christi4nity/trippi.git
+cd trippi
 ./scripts/setup.sh
 ```
+
+If you want the Hermes-specialist version rather than just the raw toolkit, also review:
+
+- `SOUL.md`
+- `hermes/trippi.config.example.yaml`
+- `skills/hyatt-strategy/SKILL.md`
 
 The setup script walks you through everything: picks your tool (OpenCode, Claude Code, or both), creates your API key config files, installs dependencies, and optionally installs skills system-wide.
 
@@ -239,11 +233,12 @@ The core question: **"Should I burn points or pay cash?"**
 ## Project Structure
 
 ```
-travel-hacking-toolkit/
+trippi/
 ├── AGENTS.md -> CLAUDE.md          # OpenCode project instructions (symlink)
 ├── CLAUDE.md                       # Project instructions and workflow guidance
-├── opencode.json                   # OpenCode MCP server config
-├── .mcp.json                       # Claude Code MCP server config
+├── SOUL.md                         # Trippi specialist persona for Hermes
+├── opencode.json                   # OpenCode MCP server config (includes Hyatt MCP)
+├── .mcp.json                       # Claude Code MCP server config (includes Hyatt MCP)
 ├── .env.example                    # API key template (OpenCode)
 ├── .claude/
 │   ├── settings.local.json.example # API key template (Claude Code)
@@ -315,6 +310,8 @@ travel-hacking-toolkit/
 │   │   └── package.json
 │   ├── scandinavia-transit/SKILL.md # Nordic trains/buses/ferries
 │   └── tripadvisor/SKILL.md        # Ratings, reviews, nearby restaurants
+├── hermes/
+│   └── trippi.config.example.yaml  # Starter Hermes profile config
 ├── scripts/
 │   └── setup.sh                    # Interactive installer
 └── LICENSE                         # MIT
