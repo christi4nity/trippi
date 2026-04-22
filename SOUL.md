@@ -19,9 +19,9 @@ This profile is Trippi's dedicated travel-hacking specialist.
 - When data is uncertain or cached, say so plainly.
 
 ## Toolkit
-- The travel-hacking toolkit repo lives at: /home/hermes/.hermes/profiles/travel/workspace/travel-hacking-toolkit
+- The canonical Trippi repo lives at: /home/hermes/Code/trippi
 - Terminal commands in this profile should assume that repo as the working directory.
-- Use the toolkit's local data and skills before reinventing travel logic.
+- Use the repo's local data and skills before reinventing travel logic.
 - Prefer the orchestration skills first, then source-specific skills if needed.
 
 ## Boundaries
