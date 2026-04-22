@@ -1,10 +1,10 @@
 # Trippi
 
-Trippi is a travel-specialist fork of the excellent upstream Travel Hacking Toolkit by Michael Borohovski.
+Trippi is an open-source travel-hacking toolkit for AI agents.
 
-It keeps the upstream toolkit's broad points-and-miles surface area, then adds a Hermes-native specialist layer: a dedicated Trippi persona, a Hyatt-first hotel strategy, and starter config for running the whole thing as a travel-focused Hermes profile.
+It starts from the excellent upstream Travel Hacking Toolkit by Michael Borohovski, then adds a cleaner specialist layer for practical points-and-miles planning: a dedicated Trippi persona, a Hyatt-first hotel strategy, and starter config for running it as a travel-focused Hermes profile.
 
-In plain English: this repo is for asking an AI the only travel-hacking question that really matters — what is the best move here, cash or points, and where should those points come from?
+In plain English: this repo helps an AI answer the only travel-hacking question that really matters — what is the best move here, cash or points, and where should those points come from?
 
 ## Best for
 
@@ -12,7 +12,7 @@ In plain English: this repo is for asking an AI the only travel-hacking question
 - cash vs points decisions with actual valuation logic
 - Chase and Amex transfer-partner analysis
 - Hyatt-heavy hotel workflows
-- running a dedicated travel specialist inside Hermes
+- running a dedicated travel specialist inside Hermes, Claude Code, or OpenCode
 
 ## What Trippi adds on top of upstream
 
@@ -20,6 +20,7 @@ In plain English: this repo is for asking an AI the only travel-hacking question
 - `hermes/trippi.config.example.yaml` gives you a Hermes profile starter with travel env passthrough and MCP wiring.
 - `skills/hyatt-strategy/SKILL.md` adds a Hyatt-first hotel workflow plus a Chase-to-Hyatt transfer lens.
 - `.mcp.json` and `opencode.json` include `@striderlabs/mcp-hyatt`.
+- a cleaner OSS-ready repo layout for sharing, forking, and extending
 
 ## Hyatt support
 
@@ -35,6 +36,8 @@ If Hyatt is plausibly relevant, the workflow should check Hyatt early instead of
 
 This repo is derived from `borski/travel-hacking-toolkit`, which is MIT licensed. Most of the base toolkit content remains upstream work; Trippi adds the specialist persona/configuration layer and Hyatt-focused behavior.
 
+If you want the broadest raw toolkit surface area, start there. If you want a more opinionated travel-agent setup, start here.
+
 ## Quick Start
 
 ```bash
@@ -43,13 +46,13 @@ cd trippi
 ./scripts/setup.sh
 ```
 
-If you want the Hermes-specialist version rather than just the raw toolkit, start with:
+If you want the travel-specialist layer rather than just the raw toolkit, start with:
 
 - `SOUL.md`
 - `hermes/trippi.config.example.yaml`
 - `skills/hyatt-strategy/SKILL.md`
 
-The setup script walks you through everything: picks your tool (OpenCode, Claude Code, or both), creates your API key config files, installs dependencies, and optionally installs skills system-wide.
+The setup script walks you through the basics: picks your tool (OpenCode, Claude Code, or both), creates API-key config files, installs dependencies, and optionally installs skills system-wide.
 
 The 5 free MCP servers (Skiplagged, Kiwi, Trivago, Ferryhopper, Airbnb) work immediately with zero API keys. For the full experience, add at minimum:
 
