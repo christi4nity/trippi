@@ -1,15 +1,15 @@
 # Trippi repo notes
 
-This repo was created from the upstream `borski/travel-hacking-toolkit` base plus the local Trippi overlay that lived in the Hermes `travel` profile.
+This repo started as a fork/overlay on top of the upstream `borski/travel-hacking-toolkit` base.
 
-Included local overlay pieces:
-- `SOUL.md` from the Trippi Hermes profile
+Added on top of upstream:
+- `SOUL.md` for the Trippi specialist persona
 - `hermes/trippi.config.example.yaml` as a starter Hermes profile config
-- `skills/hyatt-strategy/SKILL.md` copied from the local Trippi profile
-- Hyatt MCP wiring added to `.mcp.json` and `opencode.json`
+- `skills/hyatt-strategy/SKILL.md` for a Hyatt-first workflow
+- Hyatt MCP wiring in `.mcp.json` and `opencode.json`
 
 Not included:
 - secrets
-- Telegram bot config
 - private `.env` values
-- local cron/scripts specific to Christian's server runtime
+- machine-specific local config
+- deployment-specific runtime scripts
